@@ -12,7 +12,7 @@ const fileLocationQuestion: PromptObject = {
       return true;
     }
     return "😱 Sorry! That location doesn't exist, please try again";
-  },
+  }
 };
 
 export default fileLocationQuestion;

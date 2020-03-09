@@ -5,7 +5,7 @@ const productSetQuestion: PromptObject = {
   name: 'productSet',
   type: 'text',
   message: `${blue('Enter the product set id: ')}`,
-  initial: 'test-product-set',
+  initial: 'test-product-set'
 };
 
 export default productSetQuestion;

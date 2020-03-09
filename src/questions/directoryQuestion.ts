@@ -13,7 +13,7 @@ const directoryQuestion: PromptObject = {
     }
 
     return "😱 Sorry! The directory doesn't exist, please try again";
-  },
+  }
 };
 
 export default directoryQuestion;

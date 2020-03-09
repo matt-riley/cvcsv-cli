@@ -1,5 +1,5 @@
-import * as fs from "fs";
-import path from "path";
+import * as fs from 'fs';
+import path from 'path';
 import {
   directoryQuestion,
   filenameQuestion,
@@ -7,19 +7,20 @@ import {
   bucketQuestion,
   productCategoryQuestion,
   productSetQuestion
-} from "../questions";
-import { ConfigObj } from "../interfaces/ConfigObj";
-import prompts from "prompts";
-import { PromptObject } from "prompts";
+} from '../questions';
+import { ConfigObj } from '../interfaces/ConfigObj';
+import prompts from 'prompts';
+import { PromptObject } from 'prompts';
 
 export class Config {
   private static configKeys = [
-    "bucketName",
-    "csvFileLocation",
-    "csvFilename",
-    "productCategory",
-    "productSet",
-    "rootDirectory"
+    'bucketName',
+    'csvFileLocation',
+    'csvFilename',
+    'productCategory',
+    'vertices',
+    'productSet',
+    'rootDirectory'
   ];
 
   public static configQuestions: {
@@ -29,16 +30,17 @@ export class Config {
     csvFileLocation: fileLocationQuestion,
     csvFilename: filenameQuestion,
     productCategory: productCategoryQuestion[0],
+    vertices: productCategoryQuestion[1],
     productSet: productSetQuestion,
     rootDirectory: directoryQuestion
   };
 
   public static async readFile(): Promise<any> {
-    const fileName = ".cvcsvrc";
+    const fileName = '.cvcsvrc';
     const filePath = path.join(process.cwd(), fileName);
     if (fs.existsSync(filePath)) {
       try {
-        const file = fs.readFileSync(filePath, "utf-8");
+        const file = fs.readFileSync(filePath, 'utf-8');
         const json = JSON.parse(file);
         return json;
       } catch (error) {
